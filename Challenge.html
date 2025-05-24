@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8f8f8, #e0e0e0);
+            text-align: center;
+        }
+        header {
+            background: linear-gradient(90deg, #ff9800, #e68900);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+        }
+        nav button {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #ff9800;
+            transition: all 0.3s ease;
+        }
+        nav button:hover {
+            background: #ff9800;
+            color: white;
+        }
+        h1 {
+            color: #ff9800;
+            margin: 20px 0;
+        }
+        #gameArea {
+            width: 400px;
+            height: 400px;
+            background: #333;
+            margin: 20px auto;
+            border: 2px solid #ff9800;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        #scoreBoard {
+            font-size: 20px;
+            color: #333;
+            margin: 10px 0;
+        }
+        .target {
+            width: 30px;
+            height: 30px;
+            background: #ff9800;
+            border-radius: 50%;
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+        button {
+            padding: 12px 25px;
+            margin-top: 20px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #e68900;
+            transform: translateY(-2px);
+        }
+        @media (max-width: 600px) {
+            #gameArea {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Falafel Coin</h1>
+        <nav>
+            <button onclick="window.location.href='index.html'">Back to Home</button>
+        </nav>
+    </header>
+    <h1>Welcome to Challenge Game</h1>
+    <p>Click the moving targets to earn Falafel Coins!</p>
+    <div id="scoreBoard">Score: <span id="score">0</span></div>
+    <div id="gameArea"></div>
+    <button onclick="window.location.href='index.html'">Back to Home</button>
+
+    <script>
+        const gameArea = document.getElementById('gameArea');
+        const scoreElement = document.getElementById('score');
+        let score = 0;
+
+        function createTarget() {
+            const target = document.createElement('div');
+            target.classList.add('target');
+            target.style.left = Math.random() * (gameArea.offsetWidth - 30) + 'px';
+            target.style.top = Math.random() * (gameArea.offsetHeight - 30) + 'px';
+
+            target.addEventListener('click', () => {
+                score += 10;
+                scoreElement.textContent = score;
+                target.remove();
+                createTarget();
+            });
+
+            gameArea.appendChild(target);
+
+            setInterval(() => {
+                target.style.left = Math.random() * (gameArea.offsetWidth - 30) + 'px';
+                target.style.top = Math.random() * (gameArea.offsetHeight - 30) + 'px';
+            }, 2000);
+        }
+
+        createTarget();
+    </script>
+</body>
+</html>

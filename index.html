@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falafel Coin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+            color: #333;
+        }
+        header {
+            background: linear-gradient(90deg, #22ba20, #1a8d1a);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            color: white;
+            margin: 0;
+            font-size: 28px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        #coin-counter {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+        nav button {
+            padding: 12px 25px;
+            background: white;
+            border: 2px solid #22ba20;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #22ba20;
+            transition: all 0.3s ease;
+        }
+        nav button:hover {
+            background: #22ba20;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            margin: 30px 0;
+            text-align: center;
+            color: #22ba20;
+            font-size: 32px;
+            text-transform: uppercase;
+        }
+        .Games {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            padding: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .Games div {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        .Games div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .Games img {
+            width: 120px;
+            height: 120px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .Games p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #555;
+        }
+        .Games button {
+            margin-top: 15px;
+            padding: 12px;
+            background: #22ba20;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            font-size: 16px;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        .Games button:hover {
+            background: #1a8d1a;
+            transform: scale(1.05);
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background: #22ba20;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav {
+                flex-direction: column;
+                width: 100%;
+            }
+            nav button {
+                margin: 10px 0;
+            }
+            .Games {
+                grid-template-columns: 1fr;
+            }
+        }
+        .claim-button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 20px;
+            background: #22ba20;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .claim-button:hover {
+            background: #1a8d1a;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Falafel Coin</h1>
+        <div id="coin-counter">Coins: <span id="coin-count">0</span></div>
+        <nav>
+            <button onclick="window.location.href='index.html'">Start Mining</button>
+            <button onclick="window.location.href='buy-sell.html'">Buy</button>
+            <button onclick="window.location.href='buy-sell.html'">Sell</button>
+        </nav>
+    </header>
+
+    <h2>Games</h2>
+    <div class="Games">
+        <div class="Eat">
+            <img src="Eat.png" alt="Eat Game - Guide Pac-Man to eat coins">
+            <p>Guide Pac-Man to eat all coins!</p>
+            <button onclick="window.location.href='eat.html'">Play</button>
+        </div>
+        <div class="Challenge">
+            <img src="Challenge.png" alt="Challenge Game - Complete challenges">
+            <p>Complete challenges to earn coins!</p>
+            <button onclick="window.location.href='challenge.html'">Play</button>
+        </div>
+        <div class="Buy-Sell">
+            <img src="BS.png" alt="Buy & Sell Game - Trade coins">
+            <p>Trade Falafel Coins for profit!</p>
+            <button onclick="window.location.href='buy-sell.html'">Play</button>
+        </div>
+        <div class="Make">
+            <img src="Make.png" alt="Make Game - Create items">
+            <p>Create items to earn rewards!</p>
+            <button onclick="window.location.href='make.html'">Play</button>
+        </div>
+    </div>
+
+    <button class="claim-button" onclick="claimCoins()">Claim 10 Coins</button>
+
+    <footer>
+        <p>© 2025 Falafel Coin | <a href="https://x.com/1Mr_Falafel">Twitter</a> | <a href="https://discord.com/channels/1351774165316665364/1351774165316665367">Discord</a></p>
+    </footer>
+
+    <script>
+        let coins = localStorage.getItem('falafelCoins') ? parseInt(localStorage.getItem('falafelCoins')) : 0;
+        document.getElementById('coin-count').textContent = coins;
+
+        function claimCoins() {
+            coins += 10;
+            document.getElementById('coin-count').textContent = coins;
+            localStorage.setItem('falafelCoins', coins);
+        }
+    </script>
+</body>
+</html>

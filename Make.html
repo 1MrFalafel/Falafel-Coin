@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffebee, #ef9a9a);
+            text-align: center;
+        }
+        header {
+            background: linear-gradient(90deg, #d32f2f, #b71c1c);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+        }
+        nav button {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #d32f2f;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #d32f2f;
+            transition: all 0.3s ease;
+        }
+        nav button:hover {
+            background: #d32f2f;
+            color: white;
+        }
+        h1 {
+            color: #d32f2f;
+            margin: 20px 0;
+        }
+        #gameArea {
+            width: 400px;
+            height: 400px;
+            background: #ccc;
+            margin: 20px auto;
+            border: 2px solid #d32f2f;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+        }
+        #inventory {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #b71c1c;
+            transform: translateY(-2px);
+        }
+        @media (max-width: 600px) {
+            #gameArea {
+                width: 300px;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Falafel Coin</h1>
+        <nav>
+            <button onclick="window.location.href='index.html'">Back to Home</button>
+        </nav>
+    </header>
+    <h1>Welcome to Make Game</h1>
+    <p>Create items to earn rewards!</p>
+    <div id="gameArea">
+        <div id="inventory">
+            Flour: <span id="flour">5</span><br>
+            Chickpeas: <span id="chickpeas">5</span><br>
+            Falafel: <span id="falafel">0</span>
+        </div>
+        <button onclick="makeFalafel()">Make Falafel (2 Flour + 2 Chickpeas)</button>
+    </div>
+    <button onclick="window.location.href='index.html'">Back to Home</button>
+
+    <script>
+        let flour = 5;
+        let chickpeas = 5;
+        let falafel = 0;
+
+        const flourElement = document.getElementById('flour');
+        const chickpeasElement = document.getElementById('chickpeas');
+        const falafelElement = document.getElementById('falafel');
+
+        function makeFalafel() {
+            if (flour >= 2 && chickpeas >= 2) {
+                flour -= 2;
+                chickpeas -= 2;
+                falafel++;
+                flourElement.textContent = flour;
+                chickpeasElement.textContent = chickpeas;
+                falafelElement.textContent = falafel;
+                alert('You made a Falafel! Earned 50 Falafel Coins!');
+            } else {
+                alert('Not enough ingredients!');
+            }
+        }
+
+        setInterval(() => {
+            flour++;
+            chickpeas++;
+            flourElement.textContent = flour;
+            chickpeasElement.textContent = chickpeas;
+        }, 10000);
+    </script>
+</body>
+</html>
